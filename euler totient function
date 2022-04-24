@@ -17,3 +17,4 @@ void seivephi()
         //cout<<phi[i]<<el;
     }
 }
+// here maxn is the size of the array
