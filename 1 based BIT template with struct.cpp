@@ -6,7 +6,7 @@ struct fenwick
     vector<T> bit;
     fenwick(ll x, T init) {
         n = x;
-        bit.assign(n, init);
+        bit.assign(n+1, init);
     }
     void update(int indx, T val) {
         for ( ; indx <= n; indx += indx & -indx) {
