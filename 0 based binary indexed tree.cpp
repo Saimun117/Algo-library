@@ -10,19 +10,20 @@ struct fenwick
         n = x;
         bit.assign(n, init);
     }
-    void update(int indx, T val) {
-        for ( ; indx < n; indx += indx & -indx) {
-            bit[indx] += val;
-        }
-        return ;
+    void update(int indx,T val){
+    for( ;indx<n;indx=indx|(indx+1)){ // for 0 based array
+        bit[indx]+=val;
     }
-    T query(int x) {
-        T sum = 0;
-        for ( ; x >= 0; x -= x & -x) {
-            sum += bit[x];
-        }
-        return sum;
+    return ;
+}
+
+T query(int x){
+    T sum=0;
+    for( ;x>=0;x=(x&(x+1))-1){
+        sum+=bit[x];
     }
+    return sum;
+}
 };
 //fenwick<ll> tree1(10, 0);
 int main()
